@@ -7,18 +7,50 @@ public class Fraction{
 		denominator = 1;
 	}
 	
-	public Fraction(int n, int d){ //perameterized constructor
+	public Fraction(int n, int d){ //parameterized constructor
+		setNum(n);
+		setDenom(d);
+	}
+	
+	public Fraction(String str){//String constructor
+		int a = str.indexOf("/");
+		numerator = Integer.parseInt(str.substring(0,a));
+		setDenom(Integer.parseInt(str.substring(a+1)));
+		
+	}
+	
+	public Fraction(Fraction f){
+		numerator = f.numerator;
+		denominator = f.denominator;
+		
+	}
+	
+	//behaviour methods (accessor, mutator, helper)
+	//accessors
+	public int getNum(){
+		return numerator;
+		
+	}
+	public int getDenom(){
+		return denominator;
+	}
+	public String toString(){
+		return numerator + "/" + denominator;
+	}
+	public double toDouble(){
+		return (double)numerator/(double)denominator;
+	}
+	//mutators
+	public void setNum(int n){
 		numerator = n;
-		if(d!= 0){
+	}
+	public void setDenom(int d){
+		if(d!=0){
 			denominator = d;
 		}
 		else{
 			denominator = 1;
-			System.out.println("Error: Denominator cannot be zero");
+			System.out.println("Error: denominator cannot be zero");
 		}
-		
-	}
-	//behaviour methods
-
-
+	}	
 }
