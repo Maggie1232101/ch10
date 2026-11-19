@@ -52,5 +52,45 @@ public class Fraction{
 			denominator = 1;
 			System.out.println("Error: denominator cannot be zero");
 		}
-	}	
+	}
+	public void reduce(Fraction a){
+		int gcf = GCF(numerator,denominator);
+		numerator = numerator/gcf;
+		denominator = denominator/gcf;
+	}
+	
+	public static Fraction mult(Fraction a, Fraction b){
+		int n = a.numerator * b.numerator;
+		int d = a.denominator * b.denominator;
+		
+		Fraction c = new Fraction (n,d);
+		
+		return c;
+	}
+	
+	public static Fraction divide(Fraction a, Fraction b){
+		int n = a.numerator * b.denominator;
+		int d = a.denominator * b.numerator;
+		Fraction c = new Fraction(n,d);
+		return c;
+		
+	}
+	
+	public static Fraction add(){
+		Fraction c = new Fraction (1,2);
+		return c;
+	}
+	
+	public static int GCF(int a, int b){
+		while (a!=b){
+			if(a>b){
+				a-=b;
+			}
+			else if(b>a){
+				b-=a;
+			}
+		}
+		return a;
+	}
+	
 }
