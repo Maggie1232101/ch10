@@ -96,12 +96,21 @@ public class Fraction{
 		int n = a.numerator*b.denominator - b.numerator*a.denominator;
 		int d = a.denominator*b.denominator;
 		Fraction c = new Fraction (n,d);
+		if(n<0){
+			n*=-1;
+			c.reduce();
+			n*=-1;
+		}
+		else{
 		c.reduce();
+	}
 		return c;
 		
 	}
 	
 	public static int GCF(int a, int b){
+		a = Math.abs(a);
+		b = Math.abs(b);
 		while (a!=b){
 			if(a>b){
 				a-=b;
